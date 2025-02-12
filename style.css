@@ -66,9 +66,10 @@ body {
     width: 18px;
 }
 
-.weather-icon {
+.weather-icon i {
     width: 150px;
     margin: 20px 0;
+    justify-content: center;
 }
 
 .weather h1 {

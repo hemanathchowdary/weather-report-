@@ -43,5 +43,16 @@ function displayWeather(data) {
     document.getElementById('city').textContent = `${data.name}`;
     document.getElementById('humidity').textContent = `${data.main.humidity}%`;
     document.getElementById('windSpeed').textContent = `${data.wind.speed} m/s`;
-    document.getElementById('weatherIcon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+    const weather = data.weather[0].main.toLowerCase();
+    if (weather.includes("cloud")) {
+        document.getElementById('weatherIcon').innerHTML  = `<i class="fas fa-cloud"></i>`;
+    } else if (weather.includes("rain")) {
+        document.getElementById('weatherIcon').innerHTML  = `<i class="fas fa-cloud-showers-heavy"></i>`;
+    } else if (weather.includes("clear")) {
+        document.getElementById('weatherIcon').innerHTML  = `<i class="fas fa-sun"></i>`;
+    } else {
+        document.getElementById('weatherIcon').innerHTML  = `<i class="fas fa-smog"></i>`;
+    }
+
 }
